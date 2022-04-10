@@ -1,24 +1,21 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
+import PageTest from "../pages/PageTest";
 
-export type StackProps = {
-  SignIn: undefined;
-  SignUp: undefined;
-};
-
-const Auth = createNativeStackNavigator<StackProps>();
+const Auth = createStackNavigator();
 
 const AuthRoutes: React.FC = () => (
   <Auth.Navigator
     screenOptions={{
       headerShown: false,
-      contentStyle: { backgroundColor: "#312e38" },
+      cardStyle: { backgroundColor: "#312e38" },
     }}
   >
     <Auth.Screen name="SignIn" component={SignIn} />
     <Auth.Screen name="SignUp" component={SignUp} />
+    <Auth.Screen name="PageTest" component={PageTest} />
   </Auth.Navigator>
 );
 

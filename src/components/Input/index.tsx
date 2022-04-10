@@ -13,14 +13,23 @@ interface InputValueReference {
 }
 
 const Input: React.FC<InputProps> = ({ name, icon, ...rest }) => {
+  const inputElementRef = useRef<any>(null);
   const { registerField, defaultValue = "", fieldName, error } = useField(name);
   const inputRef = useRef<InputValueReference>({ value: defaultValue });
 
   useEffect(() => {
-    registerField({
+    registerField<string>({
       name: fieldName,
       ref: inputRef.current,
       path: "value",
+      setValue(ref: any, value) {
+        inputRef.current.value = value;
+        inputElementRef.current.setNativeProps({ text: value });
+      },
+      clearValue() {
+        inputRef.current.value = "";
+        inputElementRef.current.clear();
+      },
     });
   }, [fieldName, registerField]);
 
@@ -28,6 +37,7 @@ const Input: React.FC<InputProps> = ({ name, icon, ...rest }) => {
     <Container>
       <Icon name={icon} size={20} color="#666360" />
       <TextInput
+        reference={inputElementRef}
         keyboardAppearance="dark"
         placeholderTextColor="#666360"
         defaultValue={defaultValue}

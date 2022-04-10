@@ -6,7 +6,9 @@ import {
   View,
   ActivityIndicator,
   Alert,
+  ScrollView,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Feather";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
@@ -23,8 +25,6 @@ import {
   CreateAccountButtonText,
   Loading,
 } from "./styles";
-import { useNavigation } from "@react-navigation/native";
-import { ScrollView } from "react-native-gesture-handler";
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -33,7 +33,6 @@ const SignIn: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSignIn = useCallback((data: object) => {
-    Alert.alert("Ola");
     console.log(data);
   }, []);
 
