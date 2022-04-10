@@ -6,7 +6,7 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-  padding: 0 30px ${Platform.OS === "android" ? 160 : 40}px;
+  padding: 0 30px ${Platform.OS === "android" ? 168 : 40}px;
 `;
 
 export const Title = styled.Text`
@@ -25,7 +25,7 @@ export const BackToSign = styled.TouchableOpacity`
   bottom: 0;
   right: 0;
 
-  padding: 16px 0 ${16 + getBottomSpace()}px;
+  padding: 18px 0 ${18 + getBottomSpace()}px;
   justify-content: center;
   align-items: center;
   flex-direction: row;
