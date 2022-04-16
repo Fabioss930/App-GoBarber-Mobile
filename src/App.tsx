@@ -5,7 +5,7 @@ import { StatusBar, View } from "react-native";
 import AppProvider from "./hooks";
 import { NavigationContainer } from "@react-navigation/native";
 
-import Routes from "./routes";
+import Routes from "./routes/index";
 
 const App: React.FC = () => {
   return (
